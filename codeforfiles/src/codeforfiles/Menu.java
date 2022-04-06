@@ -4,47 +4,55 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+	static int selection;
 	public static void main(String[] args) {
 
 		/*********************************************************/
 
 		menu();
 
-		int selection;
+		
 		Scanner input = new Scanner(System.in);
 
-		while ((selection = input.nextInt()) != 3) {
-			switch (selection) {
-			case 1:
-				// Perform "display file names in ascending order" case.
-				Filenames f = new Filenames();
-				f.userInput();
-				break;
-			case 2:
-				// File OPERATIONS
-				int s = menu2();
-				break;
-			default:
-				System.out.println("Invalid Option");
-				break;
+		try {
+			while ((selection = input.nextInt()) != 3) {
+				switch (selection) {
+				case 1:
+					// Perform "display file names in ascending order" case.
+					Filenames f = new Filenames();
+					f.userInput();
+					break;
+				case 2:
+					// File OPERATIONS
+					int s = menu2();
+					break;
+				case 3:
+					
+					System.exit(1);
+				default:
+					System.out.println("Invalid Option");
+					break;
+				}
+				menu();
 			}
-			System.out.println("bye bye");
-			System.exit(1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
 	public static void menu() {
-
+			while (selection !=3) {
 		/***************************************************/
 		System.out.println("application name: file search and sort");
 		System.out.println("Developer Name: Fatima almufi");
-
+			
 		System.out.println("Choose from these choices");
 		System.out.println("-------------------------\n");
 		System.out.println("1 - Display file names");
 		System.out.println("2 - File operations");
 		System.out.println("3 - Quit");
-
+			break;}
 	}
 
 	public static int menu2() {
